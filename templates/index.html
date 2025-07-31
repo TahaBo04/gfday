@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>To My {{ name }}</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <style>
+    :root{--bg:#fff;--fg:#0b0b0b;--accent:#19d16b;--muted:#666;--shadow:0 0 18px rgba(25,209,107,.35);--ring:0 0 0 6px rgba(25,209,107,.07)}
+    *{box-sizing:border-box} html,body{margin:0;padding:0;background:var(--bg);color:var(--fg);font-family:Poppins,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif}
+    a{color:inherit;text-decoration:none} .container{max-width:980px;margin:0 auto;padding:22px}
+    header{position:sticky;top:0;background:rgba(255,255,255,.8);backdrop-filter:saturate(180%) blur(10px);border-bottom:1px solid #eee;z-index:50}
+    nav{display:flex;gap:18px;align-items:center;justify-content:center;padding:10px 0;font-weight:600}
+    nav a{padding:8px 12px;border-radius:999px;transition:transform .2s, box-shadow .2s}
+    nav a:hover{transform:translateY(-1px);box-shadow:var(--shadow)}
+    .btn{display:inline-block;background:var(--accent);color:#031b0e;padding:12px 18px;border-radius:999px;font-weight:700;letter-spacing:.2px;box-shadow:var(--shadow);border:none;cursor:pointer}
+    .btn:focus{outline:none;box-shadow:var(--shadow),var(--ring)}
+    .hero{padding:56px 0 22px;text-align:center}
+    .hero h1{font-size:40px;line-height:1.12;margin:0 0 10px;font-weight:800}
+    .glow{text-shadow:0 0 18px rgba(25,209,107,.35)}
+    .hero p{max-width:720px;margin:10px auto 20px;color:var(--muted);font-size:17px}
+    .card{background:#fff;border:1px solid #eee;border-radius:16px;padding:18px 18px 20px;margin:16px 0;box-shadow:0 4px 22px rgba(0,0,0,.04)}
+    .section-title{font-size:22px;margin:6px 0 12px;font-weight:800}
+    .two-col{display:grid;grid-template-columns:1fr;gap:14px}
+    @media(min-width:860px){.two-col{grid-template-columns:1.1fr .9fr}}
+    .chapter{border-left:4px solid var(--accent);padding:12px 12px 12px 14px;margin:12px 0;background:linear-gradient(180deg,#fff,#f8fffb)}
+    .muted{color:var(--muted)} .small{font-size:13px}
+    .gallery{display:grid;grid-template-columns:repeat(2,1fr);gap:8px}
+    @media(min-width:620px){.gallery{grid-template-columns:repeat(3,1fr)}}
+    .gallery img{width:100%;aspect-ratio:1/1;object-fit:cover;border-radius:12px;border:1px solid #eee;transition:transform .2s, box-shadow .2s}
+    .gallery img:hover{transform:translateY(-2px);box-shadow:var(--shadow)}
+    .reveal{padding:12px;border-radius:14px;border:1px dashed #cde;background:#fbfffd}
+    .row{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+    input[type=text]{padding:11px 12px;border:1px solid #ddd;border-radius:12px;min-width:180px}
+    .stamp{font-size:12px;color:#0f7b40;background:rgba(25,209,107,.08);border:1px solid rgba(25,209,107,.25);padding:4px 8px;border-radius:999px}
+    footer{padding:40px 0;color:#777;text-align:center}
+    /* Tiny shake effect for wrong/reused code */
+    .shake { animation: shake .4s; }
+    @keyframes shake {
+      10%, 90% { transform: translateX(-2px); }
+      20%, 80% { transform: translateX(4px); }
+      30%, 50%, 70% { transform: translateX(-6px); }
+      40%, 60% { transform: translateX(6px); }
+}
+  </style>
+</head>
+<body>
+<header>
+  <div class="container">
+    <nav>
+      <a href="#home">Home</a><a href="#chapters">Chapters</a><a href="#letter">Letter</a><a href="#audio">Audio</a><a href="#gallery">Gallery</a><a href="#surprise">Surprises</a>
+    </nav>
+  </div>
+</header>
+
+<main class="container" id="home">
+  <section class="hero card">
+    <h1 class="glow">To My {{ name }}</h1>
+    <p>Happy National Love Day, my love. Even far from you, my heart is wrapped around yours. This page is my hand reaching through the distance to remind you that you are my serenity, my beauty, my love, and my forever.</p>
+    <div class="row" style="justify-content:center;margin-top:12px">
+      <a class="btn" href="#chapters">Read Our Story</a>
+      <a class="btn" href="#audio">Listen to My Voice</a>
+    </div>
+    <div style="margin-top:12px"><span class="stamp">Made with love • {{ stamp }}</span></div>
+  </section>
+
+  <section id="chapters" class="card">
+    <div class="section-title">Chapters of Us</div>
+    <div class="chapter"><strong>Chapter I — Our First Date</strong>
+      <p class="small">{{ mem_date.first_date }}</p></div>
+    <div class="chapter"><strong>Chapter II — Our First Touch</strong>
+      <p class="small">{{ mem_date.first_touch }}</p></div>
+    <div class="chapter"><strong>Chapter III — Our First Kiss</strong>
+      <p class="small">{{ mem_date.first_kiss }}</p></div>
+    <div class="chapter"><strong>Chapter IV — My Promise</strong>
+      <p class="small">{{ promise }}</p></div>
+  </section>
+
+  <section id="letter" class="card two-col">
+    <div>
+      <div class="section-title">My Love Letter</div>
+      <p>
+        My {{ name }},<br><br>
+        Even when I am silent, my heart is whispering your name.<br>
+        I carry your serenity like a shield in my life.<br>
+        I admire your beauty not just in how you look, but in how your love makes every moment gentle and meaningful.<br>
+        I admire your love most of all—it has given my life a home.<br><br>
+        I treasure our first date, our first touch, and our first kiss like sacred chapters.<br>
+        And I promise: my love will never fade. If love can grow beyond its own peak, mine for you will.<br>
+        I am yours, always.
+      </p>
+      <p class="small muted">What I admire in you: {{ admires|join(', ') }}.</p>
+    </div>
+    <div class="reveal">
+      <div class="section-title" style="margin:0 0 6px">Private Note</div>
+      <p class="small">If the world ever forgets me, I hope it remembers I was yours. That’s enough.</p>
+    </div>
+  </section>
+
+  <section id="audio" class="card">
+    <div class="section-title">Audio Love Letter</div>
+    <p class="small muted">Record your voice reading this letter and save it as <code>static/love-letter.mp3</code>.</p>
+    <audio controls preload="none" style="width:100%">
+      <source src="{{ url_for('static', filename='love-letter.m4a') }}" type="audio/mp4">
+      Your browser does not support audio playback.
+    </audio>
+  </section>
+
+  <section id="gallery" class="card">
+    <div class="section-title">Gallery</div>
+    <p class="small muted">MY WIFE AND LILYA'S MOTHER , BEAUTY IN HUMAN FORM.</p>
+    <div class="gallery">
+      <img src="{{ url_for('static', filename='images/photo1.jpeg') }}" alt="Us 1">
+      <img src="{{ url_for('static', filename='images/photo2.jpeg') }}" alt="Us 2">
+      <img src="{{ url_for('static', filename='images/photo3.jpeg') }}" alt="Us 3">
+      <img src="{{ url_for('static', filename='images/photo4.jpeg') }}" alt="Us 4">
+      <img src="{{ url_for('static', filename='images/photo5.jpeg') }}" alt="Us 5">
+      <img src="{{ url_for('static', filename='images/photo6.jpeg') }}" alt="Us 6">
+      <img src="{{ url_for('static', filename='images/photo7.jpeg') }}" alt="Us 7">
+      <img src="{{ url_for('static', filename='images/photo8.jpeg') }}" alt="Us 8">
+      <img src="{{ url_for('static', filename='images/photo9.jpeg') }}" alt="Us 9">
+    </div>
+  </section>
+
+  <section id="surprise" class="card">
+    <div class="section-title">Surprises</div>
+    <div class="reveal">
+      <p class="small">Enter the codes when I text them to you today 💚</p>
+      <div class="row" style="margin-bottom:10px">
+        <input id="codeInput" type="text" placeholder="Enter code" />
+        <button class="btn" onclick="unlockByCode()">Unlock</button>
+      </div>
+      <div id="rewards" class="small">
+        {% for item in codes %}
+        <div data-code="{{ item.code }}" class="card" style="display:none">
+          <strong>{{ item.label }}</strong>
+          <p>{{ item.msg }}</p>
+          <audio controls preload="none" style="width:100%;margin-top:8px">
+            <source src="{{ url_for('static', filename=(item.code|lower|capitalize ~ '.m4a')) }}" type="audio/mp4">
+          </audio>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer><div class="container small">Built with love for {{ name }} • {{ stamp }}</div></footer>
+<script>
+  const seenCodes = new Set();
+
+  // Enter key submits the code
+  document.getElementById('codeInput').addEventListener('keydown', e => {
+    if (e.key === 'Enter') unlockByCode();
+  });
+
+  function unlockByCode(){
+    const inp = document.getElementById('codeInput');
+    const val = (inp.value || '').trim().toUpperCase();
+    if(!val) return;
+
+    const card = document.querySelector(`#rewards [data-code="${val}"]`);
+    if(card && !seenCodes.has(val)){
+      // Reveal the card
+      card.style.display = 'block';
+      seenCodes.add(val);
+
+      // Scroll into view for a nice effect
+      card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+      // Auto‑pause other audios, then auto‑play this one
+      const audio = card.querySelector('audio');
+      if (audio) {
+        document.querySelectorAll('#rewards audio').forEach(a => { if(a !== audio) a.pause(); });
+        audio.currentTime = 0;
+        audio.play().catch(()=>{/* ignore if browser blocks */});
+      }
+    } else {
+      // Wrong or reused code: brief shake effect
+      inp.classList.add('shake');
+      setTimeout(()=> inp.classList.remove('shake'), 400);
+    }
+
+    inp.value = '';
+  }
+</script>
+</body>
+</html>
